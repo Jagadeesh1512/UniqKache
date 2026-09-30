@@ -898,6 +898,7 @@ def write_results(
             created.append(csv_path)
 
             with config_path.open("x", encoding="utf-8", newline="\n") as cfg_handle:
+                created.append(config_path)
                 cfg_handle.write(
                     json.dumps(
                         {
@@ -914,7 +915,6 @@ def write_results(
                     # shows up as "\ No newline at end of file" in every diff.
                     + "\n"
                 )
-            created.append(config_path)
             break
         except FileExistsError:
             for p in created:
